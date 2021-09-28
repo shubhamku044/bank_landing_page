@@ -1,0 +1,37 @@
+.header {
+	nav {
+		padding: 24px;
+	}
+
+	&__logo {
+	}
+
+	&__menu {
+		> span {
+			display: block;
+			width: 26px;
+			height: 2px;
+			background-color: $dark-blue;
+
+			&:not(:last-child) {
+				margin-bottom: 4px;
+			}
+		}
+	}
+
+	&__links {
+		a {
+			font-size: $font-sm;
+			color: $grayish-blue;
+
+			&:not(:last-child) {
+				margin-right: 2rem;
+			}
+		}
+	}
+
+	&__cta {
+		color: $white;
+		font-size: $font-sm;
+	}
+}

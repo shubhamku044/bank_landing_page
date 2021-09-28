@@ -1,0 +1,11 @@
+{
+	"name": "landing_page",
+	"version": "1.0.0",
+	"description": "![Design preview for the Easybank landing page coding challenge](./design/desktop-preview.jpg)",
+	"main": "index.js",
+	"scripts": {
+		"compile:sass": "node-sass -w app/scss/style.scss -o style/"
+	},
+	"author": "shubham sharma",
+	"license": "ISC"
+}
