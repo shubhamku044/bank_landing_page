@@ -1,9 +1,50 @@
 .header {
+	// code for hamburger
+	&.open {
+		.overlay {
+			display: block;
+			opacity: 2;
+		}
+
+		.header__menu {
+			> span:first-child {
+				transform: translateY(8px) rotate(45deg);
+			}
+
+			> span:nth-child(2) {
+				opacity: 0;
+			}
+
+			> span:last-child {
+				transform: translateY(-8px) rotate(-45deg);
+			}
+		}
+	}
+
+	// Overlay
+
+	.overlay {
+		// display: none;
+		opacity: 0;
+		position: fixed;
+		top: 3.75rem;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		background-image: linear-gradient($dark-blue, transparent);
+	}
+
 	nav {
-		padding: 24px;
+		padding: 1.0625rem 1.5rem;
+		position: relative;
+		z-index: 10;
 	}
 
 	&__logo {
+		img {
+			width: 8.8125rem;
+			height: 1.375;
+		}
 	}
 
 	&__menu {
@@ -12,20 +53,48 @@
 			width: 26px;
 			height: 2px;
 			background-color: $dark-blue;
+			transition: all 300ms ease-in-out;
 
 			&:not(:last-child) {
-				margin-bottom: 4px;
+				margin-bottom: 6px;
 			}
 		}
 	}
 
 	&__links {
 		a {
+			position: relative;
 			font-size: $font-sm;
 			color: $grayish-blue;
+			transition: color 0.3s ease-in-out;
 
 			&:not(:last-child) {
 				margin-right: 2rem;
+			}
+
+			&::before {
+				content: '';
+				display: block;
+				position: absolute;
+				height: 5px;
+				left: 0;
+				right: 0;
+				bottom: -30px;
+				opacity: 0;
+				transition: opacity 300ms ease-in-out;
+				background: linear-gradient(
+					to right bottom,
+					$line-green,
+					$bright-cyan
+				);
+			}
+
+			&:hover {
+				color: $dark-blue;
+
+				&::before {
+					opacity: 1;
+				}
 			}
 		}
 	}
@@ -33,5 +102,10 @@
 	&__cta {
 		color: $white;
 		font-size: $font-sm;
+		transition: opacity 300ms ease-in-out;
+
+		&:hover {
+			opacity: 0.75;
+		}
 	}
 }

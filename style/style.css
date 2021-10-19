@@ -1,3 +1,29 @@
+@keyframes fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0; }
+  1% {
+    visibility: visible;
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fade-out {
+  from {
+    visibility: visible;
+    opacity: 1; }
+  99% {
+    visibility: hidden;
+    opacity: 0; }
+  to {
+    opacity: 0; } }
+
+.fade-in {
+  animation: fade-in 300ms ease-in-out forwards; }
+
+.fade-out {
+  animation: fade-out 300ms ease-in-out forwards; }
+
 html {
   box-sizing: border-box;
   font-size: 100%; }
@@ -46,23 +72,72 @@ button,
   .hide-for-desktop {
     display: none; } }
 
+.header.open .overlay {
+  display: block;
+  opacity: 2; }
+
+.header.open .header__menu > span:first-child {
+  transform: translateY(8px) rotate(45deg); }
+
+.header.open .header__menu > span:nth-child(2) {
+  opacity: 0; }
+
+.header.open .header__menu > span:last-child {
+  transform: translateY(-8px) rotate(-45deg); }
+
+.header .overlay {
+  opacity: 0;
+  position: fixed;
+  top: 3.75rem;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-image: linear-gradient(#2d314d, transparent); }
+
 .header nav {
-  padding: 24px; }
+  padding: 1.0625rem 1.5rem;
+  position: relative;
+  z-index: 10; }
+
+.header__logo img {
+  width: 8.8125rem;
+  height: 1.375; }
 
 .header__menu > span {
   display: block;
   width: 26px;
   height: 2px;
-  background-color: #2d314d; }
+  background-color: #2d314d;
+  transition: all 300ms ease-in-out; }
   .header__menu > span:not(:last-child) {
-    margin-bottom: 4px; }
+    margin-bottom: 6px; }
 
 .header__links a {
+  position: relative;
   font-size: 0.875rem;
-  color: #9698a6; }
+  color: #9698a6;
+  transition: color 0.3s ease-in-out; }
   .header__links a:not(:last-child) {
     margin-right: 2rem; }
+  .header__links a::before {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 5px;
+    left: 0;
+    right: 0;
+    bottom: -30px;
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+    background: linear-gradient(to right bottom, #31d35c, #2bb7da); }
+  .header__links a:hover {
+    color: #2d314d; }
+    .header__links a:hover::before {
+      opacity: 1; }
 
 .header__cta {
   color: white;
-  font-size: 0.875rem; }
+  font-size: 0.875rem;
+  transition: opacity 300ms ease-in-out; }
+  .header__cta:hover {
+    opacity: 0.75; }
