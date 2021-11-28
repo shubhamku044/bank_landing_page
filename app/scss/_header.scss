@@ -100,16 +100,6 @@
 		}
 	}
 
-	&__cta {
-		color: $white;
-		font-size: $font-sm;
-		transition: opacity 300ms ease-in-out;
-
-		&:hover {
-			opacity: 0.75;
-		}
-	}
-
 	&__menu {
 		position: absolute;
 		width: calc(100% - 3rem);
